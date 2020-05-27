@@ -1,0 +1,100 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Table id="memoTable" items="{ path: '/trec'}" growing="true" width="100%">
+		<headerToolbar>
+			<Toolbar>
+				<Title text="{i18n>CreditTitle}" level="H2"/>
+			</Toolbar>
+		</headerToolbar>
+		<columns>
+			<Column width="3rem">
+				<Text text="{i18n>NewOrderTitle}"/>
+			</Column>
+			<Column width="3rem">
+				<Text text="{i18n>DocType}"/>
+			</Column>
+			<Column width="3rem">
+				<Text text="{i18n>SalesOrg}"/>
+			</Column>
+			<Column width="3rem">
+				<Text text="{i18n>DistChannel}"/>
+			</Column>
+			<Column width="3rem">
+				<Text text="{i18n>Division}"/>
+			</Column>
+			<Column width="4rem">
+				<Text text="{i18n>SoldParty}"/>
+			</Column>
+			<Column width="5rem">
+				<Text text="{i18n>CReference}"/>
+			</Column>
+			<Column width="4rem">
+				<Text text="{i18n>Oreason}"/>
+			</Column>
+			<Column width="3rem">
+				<Text text="{i18n>Pterm}"/>
+			</Column>
+			<Column width="3rem">
+				<Text text="{i18n>Currency}"/>
+			</Column>
+			<Column width="3rem">
+				<Text text="{i18n>PMethod}"/>
+			</Column>
+			
+			<Column width="4rem">
+				<Text text="{i18n>Mat}"/>
+			</Column>
+			<Column width="3rem">
+				<Text text="{i18n>Quan}"/>
+			</Column>
+			<Column width="3rem">
+				<Text text="{i18n>CType}"/>
+			</Column>
+			<Column width="3rem">
+				<Text text="{i18n>CValue}"/>
+			</Column>
+			
+			<Column width="3rem">
+				<Text text="{i18n>Bblock}"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem>
+				<cells>
+					<Text text="{NOrder}"/>
+					<Text text="{DType}"/>
+					<Text text="{Sorg}"/>
+					<Text text="{Dchnl}"/>
+					<Text text="{Div}"/>
+					<Text text="{SParty}"/>
+					<Text text="{Cref}">
+						<!--<customData>-->
+						<!--	<c:CustomData key="color" value="{SDColorCode}" writeToDom="true"/>-->
+						<!--</customData>-->
+					</Text>
+					<Text text="{Oreason}">
+						<!--<customData>-->
+						<!--	<c:CustomData key="color" value="{FTColorCode}" writeToDom="true"/>-->
+						<!--</customData>-->
+					</Text>
+					<Text text="{Pterm}">
+						<!--<customData>-->
+						<!--	<c:CustomData key="color" value="{EDColorCode}" writeToDom="true"/>-->
+						<!--</customData>-->
+					</Text>
+					<Text text="{Currency}">
+						<!--<customData>-->
+						<!--	<c:CustomData key="color" value="{FETColorCode}" writeToDom="true"/>-->
+						<!--</customData>-->
+					</Text>
+					<Text text="{Pmethod}"/>
+				
+					<Text text="{Mat}"/>
+					<Text text="{Quan}"/>
+					<Text text="{CType}"/>
+					<Text text="{Cvalue}"/>
+				   <Text text="{Bblock}"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</core:FragmentDefinition>

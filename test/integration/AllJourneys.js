@@ -1,0 +1,1 @@
+sap.ui.define(["sap/ui/test/Opa5","./arrangements/Startup","./arrangements/FLP","./WorklistJourney","./NavigationJourney","./NotFoundJourney","./ObjectJourney","./FLPIntegrationJourney"],function(e,t,n){"use strict";e.extendConfig({arrangements:new t,assertions:new n,viewNamespace:"CreditDebit.UploadCreditDebitMemo.view.",autoWait:true})});
