@@ -1,0 +1,162 @@
+<mvc:View controllerName="CreditDebit.UploadCreditDebitMemo.controller.Worklist" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.f.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified"
+	xmlns:core="sap.ui.core">
+	<Page id="page">
+		<!--<semantic:titleHeading>-->
+		<!--	<Title text="{i18n>worklistTitle}" level="H2"/>-->
+		<!--</semantic:titleHeading>-->
+		<content>
+			<Panel>
+				<FlexBox justifyContent="Center" alignItems="Center">
+					<items>
+						<Text text="{i18n>Document}"></Text>
+						<!--<l:HorizontalLayout>-->
+						   <RadioButtonGroup id="rgM" columns="5" select=".memoSelected">
+							<RadioButton id="cRB"  text="{i18n>CreditMemo}" selected="true"/>
+							<RadioButton id= "dRB"  text="{i18n>DebitMemo}"/>
+							</RadioButtonGroup>
+						<!--</l:HorizontalLayout>-->
+					</items>
+				</FlexBox>
+			</Panel>
+			<Panel>
+				<FlexBox height="50px" justifyContent="Center" alignItems="Center">
+					<items>
+						<Text text="{i18n>UploadFileTitle}" width="5rem"></Text>
+						<l:HorizontalLayout>
+							<u:FileUploader width="16rem" id="fileUploader" name="myFileUpload" uploadUrl="upload/" uploadComplete="handleUploadComplete"/>
+							<ToolbarSpacer/>
+							<Button width="5rem" id="tUpload" icon="sap-icon://upload" press="handleUploadPress" type="Emphasized" tooltip="{i18n>UITooltip}" />
+							<Button width="5rem" id="cUpload" icon="sap-icon://upload-to-cloud" press="handlePost" type="Emphasized" tooltip="{i18n>UCTooltip}"/>
+			
+							<Button width="5rem" id="rclear" icon="sap-icon://refresh" press="handleRefresh" type="Emphasized" tooltip="{i18n>RTooltip}"/>
+						</l:HorizontalLayout>
+					</items>
+				</FlexBox>
+			</Panel>
+		 	
+			<ScrollContainer id="myContainer" horizontal="true" >
+				<!--<content id ="tableContent">-->
+					<!--<Table id="memoTable" items="{ path: '/trec'}" growing="true" width="100%">-->
+					<!--	<headerToolbar>-->
+					<!--		<Toolbar>-->
+					<!--			<Title text="{i18n>TableTitle}" level="H2"/>-->
+					<!--		</Toolbar>-->
+					<!--	</headerToolbar>-->
+					<!--	<columns>-->
+					<!--		<Column width="3rem">-->
+					<!--			<Text text="{i18n>NewOrderTitle}"/>-->
+					<!--		</Column>-->
+					<!--		<Column width="3rem">-->
+					<!--			<Text text="{i18n>DocType}"/>-->
+					<!--		</Column>-->
+					<!--		<Column width="3rem">-->
+					<!--			<Text text="{i18n>SalesOrg}"/>-->
+					<!--		</Column>-->
+					<!--		<Column width="3rem">-->
+					<!--			<Text text="{i18n>DistChannel}"/>-->
+					<!--		</Column>-->
+					<!--		<Column width="3rem">-->
+					<!--			<Text text="{i18n>Division}"/>-->
+					<!--		</Column>-->
+					<!--		<Column width="4rem">-->
+					<!--			<Text text="{i18n>SoldParty}"/>-->
+					<!--		</Column>-->
+					<!--		<Column width="5rem">-->
+					<!--			<Text text="{i18n>CReference}"/>-->
+					<!--		</Column>-->
+					<!--		<Column width="4rem">-->
+					<!--			<Text text="{i18n>Oreason}"/>-->
+					<!--		</Column>-->
+					<!--		<Column width="3rem">-->
+					<!--			<Text text="{i18n>Pterm}"/>-->
+					<!--		</Column>-->
+					<!--		<Column width="3rem">-->
+					<!--			<Text text="{i18n>Currency}"/>-->
+					<!--		</Column>-->
+					<!--		<Column width="3rem">-->
+					<!--			<Text text="{i18n>PMethod}"/>-->
+					<!--		</Column>-->
+					<!--		<Column width="3rem">-->
+					<!--			<Text text="{i18n>HTextID}"/>-->
+					<!--		</Column>-->
+					<!--		<Column width="5rem">-->
+					<!--			<Text text="{i18n>HText}"/>-->
+					<!--		</Column>-->
+					<!--		<Column width="4rem">-->
+					<!--			<Text text="{i18n>Mat}"/>-->
+					<!--		</Column>-->
+					<!--		<Column width="3rem">-->
+					<!--			<Text text="{i18n>Quan}"/>-->
+					<!--		</Column>-->
+					<!--		<Column width="3rem">-->
+					<!--			<Text text="{i18n>CType}"/>-->
+					<!--		</Column>-->
+					<!--		<Column width="3rem">-->
+					<!--			<Text text="{i18n>CValue}"/>-->
+					<!--		</Column>-->
+					<!--		<Column width="3rem">-->
+					<!--			<Text text="{i18n>ITextID}"/>-->
+					<!--		</Column>-->
+					<!--		<Column width="5rem">-->
+					<!--			<Text text="{i18n>IText}"/>-->
+					<!--		</Column>-->
+					<!--		<Column width="3rem">-->
+					<!--			<Text text="{i18n>Bblock}"/>-->
+					<!--		</Column>-->
+					<!--	</columns>-->
+					<!--	<items>-->
+					<!--		<ColumnListItem>-->
+					<!--			<cells>-->
+					<!--				<Text text="{NOrder}"/>-->
+					<!--				<Text text="{DType}"/>-->
+					<!--				<Text text="{Sorg}"/>-->
+					<!--				<Text text="{Dchnl}"/>-->
+					<!--				<Text text="{Div}"/>-->
+					<!--				<Text text="{SParty}"/>-->
+					<!--				<Text text="{Cref}">-->
+										<!--<customData>-->
+										<!--	<c:CustomData key="color" value="{SDColorCode}" writeToDom="true"/>-->
+										<!--</customData>-->
+					<!--				</Text>-->
+					<!--				<Text text="{Oreason}">-->
+										<!--<customData>-->
+										<!--	<c:CustomData key="color" value="{FTColorCode}" writeToDom="true"/>-->
+										<!--</customData>-->
+					<!--				</Text>-->
+					<!--				<Text text="{Pterm}">-->
+										<!--<customData>-->
+										<!--	<c:CustomData key="color" value="{EDColorCode}" writeToDom="true"/>-->
+										<!--</customData>-->
+					<!--				</Text>-->
+					<!--				<Text text="{Currency}">-->
+										<!--<customData>-->
+										<!--	<c:CustomData key="color" value="{FETColorCode}" writeToDom="true"/>-->
+										<!--</customData>-->
+					<!--				</Text>-->
+					<!--				<Text text="{Pmethod}"/>-->
+					<!--				<Text text="{HTID}">-->
+										<!--<customData>-->
+										<!--	<c:CustomData key="color" value="{BTColorCode}" writeToDom="true"/>-->
+										<!--</customData>-->
+					<!--				</Text>-->
+					<!--				<Text text="{Htext}"/>-->
+					<!--				<Text text="{Mat}"/>-->
+					<!--				<Text text="{Quan}"/>-->
+					<!--				<Text text="{CType}"/>-->
+					<!--				<Text text="{Cvalue}"/>-->
+					<!--				<Text text="{ITID}"/>-->
+					<!--				<Text text="{Itext}"/>-->
+					<!--				<Text text="{Bblock}"/>-->
+					<!--			</cells>-->
+					<!--		</ColumnListItem>-->
+					<!--	</items>-->
+					<!--</Table>-->
+				<!--</content>-->
+			</ScrollContainer>
+		</content>
+		<footer>
+			<OverflowToolbar id="oToolBar"></OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>
