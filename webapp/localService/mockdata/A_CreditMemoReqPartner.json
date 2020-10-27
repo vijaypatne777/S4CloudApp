@@ -1,0 +1,161 @@
+[{
+	"CreditMemoRequest": "CreditMemoRequest 1",
+	"PartnerFunction": "PartnerFunction 1",
+	"Customer": "Customer 1",
+	"Supplier": "Supplier 1",
+	"Personnel": "Personnel 1",
+	"ContactPerson": "ContactPerson 1",
+	"__metadata": {
+		"uri": "A_CreditMemoReqPartner(CreditMemoRequest='CreditMemoRequest%201',PartnerFunction='PartnerFunction%201')",
+		"type": "API_CREDIT_MEMO_REQUEST_SRV.A_CreditMemoReqPartnerType"
+	},
+	"to_CreditMemoRequest": {
+		"__deferred": {
+			"uri": "A_CreditMemoReqPartner(CreditMemoRequest='CreditMemoRequest%201',PartnerFunction='PartnerFunction%201')/to_CreditMemoRequest"
+		}
+	}
+}, {
+	"CreditMemoRequest": "CreditMemoRequest 2",
+	"PartnerFunction": "PartnerFunction 2",
+	"Customer": "Customer 2",
+	"Supplier": "Supplier 2",
+	"Personnel": "Personnel 2",
+	"ContactPerson": "ContactPerson 2",
+	"__metadata": {
+		"uri": "A_CreditMemoReqPartner(CreditMemoRequest='CreditMemoRequest%202',PartnerFunction='PartnerFunction%202')",
+		"type": "API_CREDIT_MEMO_REQUEST_SRV.A_CreditMemoReqPartnerType"
+	},
+	"to_CreditMemoRequest": {
+		"__deferred": {
+			"uri": "A_CreditMemoReqPartner(CreditMemoRequest='CreditMemoRequest%202',PartnerFunction='PartnerFunction%202')/to_CreditMemoRequest"
+		}
+	}
+}, {
+	"CreditMemoRequest": "CreditMemoRequest 3",
+	"PartnerFunction": "PartnerFunction 3",
+	"Customer": "Customer 3",
+	"Supplier": "Supplier 3",
+	"Personnel": "Personnel 3",
+	"ContactPerson": "ContactPerson 3",
+	"__metadata": {
+		"uri": "A_CreditMemoReqPartner(CreditMemoRequest='CreditMemoRequest%203',PartnerFunction='PartnerFunction%203')",
+		"type": "API_CREDIT_MEMO_REQUEST_SRV.A_CreditMemoReqPartnerType"
+	},
+	"to_CreditMemoRequest": {
+		"__deferred": {
+			"uri": "A_CreditMemoReqPartner(CreditMemoRequest='CreditMemoRequest%203',PartnerFunction='PartnerFunction%203')/to_CreditMemoRequest"
+		}
+	}
+}, {
+	"CreditMemoRequest": "CreditMemoRequest 4",
+	"PartnerFunction": "PartnerFunction 4",
+	"Customer": "Customer 4",
+	"Supplier": "Supplier 4",
+	"Personnel": "Personnel 4",
+	"ContactPerson": "ContactPerson 4",
+	"__metadata": {
+		"uri": "A_CreditMemoReqPartner(CreditMemoRequest='CreditMemoRequest%204',PartnerFunction='PartnerFunction%204')",
+		"type": "API_CREDIT_MEMO_REQUEST_SRV.A_CreditMemoReqPartnerType"
+	},
+	"to_CreditMemoRequest": {
+		"__deferred": {
+			"uri": "A_CreditMemoReqPartner(CreditMemoRequest='CreditMemoRequest%204',PartnerFunction='PartnerFunction%204')/to_CreditMemoRequest"
+		}
+	}
+}, {
+	"CreditMemoRequest": "CreditMemoRequest 5",
+	"PartnerFunction": "PartnerFunction 5",
+	"Customer": "Customer 5",
+	"Supplier": "Supplier 5",
+	"Personnel": "Personnel 5",
+	"ContactPerson": "ContactPerson 5",
+	"__metadata": {
+		"uri": "A_CreditMemoReqPartner(CreditMemoRequest='CreditMemoRequest%205',PartnerFunction='PartnerFunction%205')",
+		"type": "API_CREDIT_MEMO_REQUEST_SRV.A_CreditMemoReqPartnerType"
+	},
+	"to_CreditMemoRequest": {
+		"__deferred": {
+			"uri": "A_CreditMemoReqPartner(CreditMemoRequest='CreditMemoRequest%205',PartnerFunction='PartnerFunction%205')/to_CreditMemoRequest"
+		}
+	}
+}, {
+	"CreditMemoRequest": "CreditMemoRequest 6",
+	"PartnerFunction": "PartnerFunction 6",
+	"Customer": "Customer 6",
+	"Supplier": "Supplier 6",
+	"Personnel": "Personnel 6",
+	"ContactPerson": "ContactPerson 6",
+	"__metadata": {
+		"uri": "A_CreditMemoReqPartner(CreditMemoRequest='CreditMemoRequest%206',PartnerFunction='PartnerFunction%206')",
+		"type": "API_CREDIT_MEMO_REQUEST_SRV.A_CreditMemoReqPartnerType"
+	},
+	"to_CreditMemoRequest": {
+		"__deferred": {
+			"uri": "A_CreditMemoReqPartner(CreditMemoRequest='CreditMemoRequest%206',PartnerFunction='PartnerFunction%206')/to_CreditMemoRequest"
+		}
+	}
+}, {
+	"CreditMemoRequest": "CreditMemoRequest 7",
+	"PartnerFunction": "PartnerFunction 7",
+	"Customer": "Customer 7",
+	"Supplier": "Supplier 7",
+	"Personnel": "Personnel 7",
+	"ContactPerson": "ContactPerson 7",
+	"__metadata": {
+		"uri": "A_CreditMemoReqPartner(CreditMemoRequest='CreditMemoRequest%207',PartnerFunction='PartnerFunction%207')",
+		"type": "API_CREDIT_MEMO_REQUEST_SRV.A_CreditMemoReqPartnerType"
+	},
+	"to_CreditMemoRequest": {
+		"__deferred": {
+			"uri": "A_CreditMemoReqPartner(CreditMemoRequest='CreditMemoRequest%207',PartnerFunction='PartnerFunction%207')/to_CreditMemoRequest"
+		}
+	}
+}, {
+	"CreditMemoRequest": "CreditMemoRequest 8",
+	"PartnerFunction": "PartnerFunction 8",
+	"Customer": "Customer 8",
+	"Supplier": "Supplier 8",
+	"Personnel": "Personnel 8",
+	"ContactPerson": "ContactPerson 8",
+	"__metadata": {
+		"uri": "A_CreditMemoReqPartner(CreditMemoRequest='CreditMemoRequest%208',PartnerFunction='PartnerFunction%208')",
+		"type": "API_CREDIT_MEMO_REQUEST_SRV.A_CreditMemoReqPartnerType"
+	},
+	"to_CreditMemoRequest": {
+		"__deferred": {
+			"uri": "A_CreditMemoReqPartner(CreditMemoRequest='CreditMemoRequest%208',PartnerFunction='PartnerFunction%208')/to_CreditMemoRequest"
+		}
+	}
+}, {
+	"CreditMemoRequest": "CreditMemoRequest 9",
+	"PartnerFunction": "PartnerFunction 9",
+	"Customer": "Customer 9",
+	"Supplier": "Supplier 9",
+	"Personnel": "Personnel 9",
+	"ContactPerson": "ContactPerson 9",
+	"__metadata": {
+		"uri": "A_CreditMemoReqPartner(CreditMemoRequest='CreditMemoRequest%209',PartnerFunction='PartnerFunction%209')",
+		"type": "API_CREDIT_MEMO_REQUEST_SRV.A_CreditMemoReqPartnerType"
+	},
+	"to_CreditMemoRequest": {
+		"__deferred": {
+			"uri": "A_CreditMemoReqPartner(CreditMemoRequest='CreditMemoRequest%209',PartnerFunction='PartnerFunction%209')/to_CreditMemoRequest"
+		}
+	}
+}, {
+	"CreditMemoRequest": "CreditMemoRequest 10",
+	"PartnerFunction": "PartnerFunction 10",
+	"Customer": "Customer 10",
+	"Supplier": "Supplier 10",
+	"Personnel": "Personnel 10",
+	"ContactPerson": "ContactPerson 10",
+	"__metadata": {
+		"uri": "A_CreditMemoReqPartner(CreditMemoRequest='CreditMemoRequest%2010',PartnerFunction='PartnerFunction%2010')",
+		"type": "API_CREDIT_MEMO_REQUEST_SRV.A_CreditMemoReqPartnerType"
+	},
+	"to_CreditMemoRequest": {
+		"__deferred": {
+			"uri": "A_CreditMemoReqPartner(CreditMemoRequest='CreditMemoRequest%2010',PartnerFunction='PartnerFunction%2010')/to_CreditMemoRequest"
+		}
+	}
+}]
