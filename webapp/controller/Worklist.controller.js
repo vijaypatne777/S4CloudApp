@@ -47,7 +47,7 @@ sap.ui.define([
 					var jdata = this.getData();
 					that._Cuser = jdata.name;
 					//		console.log(jdata);
-			//		alert(jdata.email);
+					//		alert(jdata.email);
 					that.getBusinessUser(jdata);
 				} else {
 					var msg = oEvent.getParameter("errorObject").textStatus;
@@ -185,9 +185,9 @@ sap.ui.define([
 						var arrCSV = strCSV.replace(/\n/g, ",").split(",");
 						var noOfCols;
 						if (that._cIndex === 1) {
-							noOfCols = 20;
+							noOfCols = 21;
 						} else {
-							noOfCols = 16;
+							noOfCols = 21;
 						}
 						var headerRow = arrCSV.splice(0, noOfCols);
 						// arrCSV.length 
@@ -224,50 +224,55 @@ sap.ui.define([
 
 										pobj["SParty"] = obj[headerRow[i]];
 										break;
-									case 6:
-										pobj["Cref"] = obj[headerRow[i]];
+                                    case 6:
+
+										pobj["SHParty"] = obj[headerRow[i]];
 										break;
 									case 7:
+										pobj["Cref"] = obj[headerRow[i]];
+										break;
+									case 8:
 
 										pobj["Oreason"] = obj[headerRow[i]];
 										break;
-									case 8:
+									case 9:
 										pobj["Pterm"] = obj[headerRow[i]];
 										break;
-									case 9:
+									case 10:
 										pobj["Currency"] = obj[headerRow[i]];
 										break;
-									case 10:
+									case 11:
 										pobj["Pmethod"] = obj[headerRow[i]];
 										break;
-									case 11:
+
+									case 12:
 
 										pobj["HTID"] = obj[headerRow[i]];
 										break;
-									case 12:
+									case 13:
 										pobj["Htext"] = obj[headerRow[i]];
 										break;
-									case 13:
+									case 14:
 
 										pobj["Mat"] = obj[headerRow[i]];
 										break;
-									case 14:
+									case 15:
 										pobj["Quan"] = obj[headerRow[i]];
 										break;
-									case 15:
+									case 16:
 										pobj["CType"] = obj[headerRow[i]];
 										break;
-									case 16:
+									case 17:
 										pobj["Cvalue"] = obj[headerRow[i]];
 										break;
 
-									case 17:
+									case 18:
 										pobj["ITID"] = obj[headerRow[i]];
 										break;
-									case 18:
+									case 19:
 										pobj["Itext"] = obj[headerRow[i]];
 										break;
-									case 19:
+									case 20:
 										pobj["Bblock"] = obj[headerRow[i]];
 										break;
 									}
@@ -298,37 +303,53 @@ sap.ui.define([
 										pobj["SParty"] = obj[headerRow[i]];
 										break;
 									case 6:
-										pobj["Cref"] = obj[headerRow[i]];
+
+										pobj["SHParty"] = obj[headerRow[i]];
 										break;
 									case 7:
+										pobj["Cref"] = obj[headerRow[i]];
+										break;
+									case 8:
 
 										pobj["Oreason"] = obj[headerRow[i]];
 										break;
-									case 8:
+									case 9:
 										pobj["Pterm"] = obj[headerRow[i]];
 										break;
-									case 9:
+									case 10:
 										pobj["Currency"] = obj[headerRow[i]];
 										break;
-									case 10:
+									case 11:
 										pobj["Pmethod"] = obj[headerRow[i]];
 										break;
+									case 12:
 
-									case 11:
+										pobj["HTID"] = obj[headerRow[i]];
+										break;
+									case 13:
+										pobj["Htext"] = obj[headerRow[i]];
+										break;
+									case 14:
 
 										pobj["Mat"] = obj[headerRow[i]];
 										break;
-									case 12:
+									case 15:
 										pobj["Quan"] = obj[headerRow[i]];
 										break;
-									case 13:
+									case 16:
 										pobj["CType"] = obj[headerRow[i]];
 										break;
-									case 14:
+									case 17:
 										pobj["Cvalue"] = obj[headerRow[i]];
 										break;
+									case 18:
+										pobj["ITID"] = obj[headerRow[i]];
+										break;
+									case 19:
+										pobj["Itext"] = obj[headerRow[i]];
+										break;
 
-									case 15:
+									case 20:
 										pobj["Bblock"] = obj[headerRow[i]];
 										break;
 									}
@@ -454,6 +475,8 @@ sap.ui.define([
 			var allPromises = [];
 			var oPromise;
 			var groupID = "GRPID";
+			var pobj = {};
+			var pobjs = [];
 			for (var j = 0; j < tData.trec.length; j++) {
 
 				var iObj = {};
@@ -475,6 +498,9 @@ sap.ui.define([
 					var hTobj = [];
 					var iObj = {};
 					var itemsObj = [];
+					pobj = {};
+					pobjs = [];
+					
 
 					//					} else {
 					obj.YY1_CreditDebitMemoReq_SDH = this._bID;
@@ -496,6 +522,16 @@ sap.ui.define([
 					obj.PurchaseOrderByCustomer = tData.trec[j].Cref;
 					obj.HeaderBillingBlockReason = tData.trec[j].Bblock;
 					obj.HeaderBillingBlockReason = obj.HeaderBillingBlockReason.toUpperCase();
+					
+						if (tData.trec[j].SHParty !== "") {
+						
+						pobj.PartnerFunction = 'SH';
+
+						pobj.Customer = tData.trec[j].SHParty;
+
+						pobjs.push(pobj);
+						obj.to_Partner = pobjs;
+					}
 					//					if (tData.trec[j].HTID !== " " &&  tData.trec[j].HTID !== "") {
 					tObj.LongTextID = tData.trec[j].HTID;
 					tObj.LongTextID = tObj.LongTextID.toUpperCase();
@@ -546,6 +582,16 @@ sap.ui.define([
 						obj.HeaderBillingBlockReason = tData.trec[j].Bblock;
 						obj.HeaderBillingBlockReason = obj.HeaderBillingBlockReason.toUpperCase();
 						obj.PurchaseOrderByCustomer = tData.trec[j].Cref;
+						
+							if (tData.trec[j].SHParty !== "") {
+						
+						pobj.PartnerFunction = 'SH';
+
+						pobj.Customer = tData.trec[j].SHParty;
+
+						pobjs.push(pobj);
+						obj.to_Partner = pobjs;
+					}
 						//						if (tData.trec[j].HTID !== " " && tData.trec[j].HTID !== "" ) {
 						tObj.LongTextID = tData.trec[j].HTID;
 						tObj.LongTextID = tObj.LongTextID.toUpperCase();
@@ -705,11 +751,19 @@ sap.ui.define([
 			var oPromise;
 			var groupID = "GRPID";
 			var count = 0;
+			var pobj = {};
+			var pobjs = [];
+			var tObj = {};
+			var hTobj = [];
 			for (var j = 0; j < tData.trec.length; j++) {
 
 				var iObj = {};
+			
 				var itemPrice = {};
 				var itemsPrice = [];
+			
+				var itemTObj = {};
+				var itemsTObj = [];
 
 				if (j !== 0 && (tData.trec[j].NOrder === 'X' || tData.trec[j].NOrder === 'x')) {
 					//					if (first === "X") {
@@ -720,12 +774,19 @@ sap.ui.define([
 					oPromise = this.createCreditMemo(obj, groupID);
 					count = count + 1;
 					allPromises.push(oPromise);
-					var obj = {};
-
-					var iObj = {};
-					var itemsObj = [];
+					//	var obj = {};
 
 					//					} else {
+					
+				   obj = {};
+				   iObj = {};
+				   itemsObj = [];
+				 
+				   tObj = {};
+				   hTobj = [];
+			       pobj= {};
+			       pobjs = [];
+					
 					obj.YY1_CreditDebitMemoReq_SDH = this._bID;
 					obj.CreditMemoRequestType = tData.trec[j].DType;
 					obj.CreditMemoRequestType = obj.CreditMemoRequestType.toUpperCase();
@@ -746,9 +807,31 @@ sap.ui.define([
 					obj.HeaderBillingBlockReason = tData.trec[j].Bblock;
 					obj.HeaderBillingBlockReason = obj.HeaderBillingBlockReason.toUpperCase();
 
+					if (tData.trec[j].SHParty !== "") {
+						
+						pobj.PartnerFunction = 'SH';
+
+						pobj.Customer = tData.trec[j].SHParty;
+
+						pobjs.push(pobj);
+						obj.to_Partner = pobjs;
+					}
+					tObj.LongTextID = tData.trec[j].HTID;
+					tObj.LongTextID = tObj.LongTextID.toUpperCase();
+					tObj.Language = "E";
+					tObj.LongText = tData.trec[j].Htext;
+					hTobj.push(tObj);
+					obj.to_Text = hTobj;
+
 					iObj.Material = tData.trec[j].Mat;
 					iObj.Material = iObj.Material.toUpperCase();
 					iObj.RequestedQuantity = tData.trec[j].Quan;
+					itemTObj.Language = "E";
+					itemTObj.LongTextID = tData.trec[j].ITID;
+					itemTObj.LongTextID = itemTObj.LongTextID.toUpperCase();
+					itemTObj.LongText = tData.trec[j].Itext;
+					itemsTObj.push(itemTObj);
+					iObj.to_Text = itemsTObj;
 
 					itemPrice.ConditionType = tData.trec[j].CType;
 					itemPrice.ConditionType = itemPrice.ConditionType.toUpperCase();
@@ -782,10 +865,31 @@ sap.ui.define([
 						obj.PurchaseOrderByCustomer = tData.trec[j].Cref;
 						obj.HeaderBillingBlockReason = tData.trec[j].Bblock;
 						obj.HeaderBillingBlockReason = obj.HeaderBillingBlockReason.toUpperCase();
+
+						if (tData.trec[j].SHParty !== "") {
+						
+							pobj.PartnerFunction = 'SH';
+							pobj.Customer = tData.trec[j].SHParty;
+							pobjs.push(pobj);
+							obj.to_Partner = pobjs;
+						}
+						tObj.LongTextID = tData.trec[j].HTID;
+						tObj.LongTextID = tObj.LongTextID.toUpperCase();
+						tObj.Language = "E";
+						tObj.LongText = tData.trec[j].Htext;
+						hTobj.push(tObj);
+						obj.to_Text = hTobj;
 					}
 					iObj.Material = tData.trec[j].Mat;
 					iObj.Material = iObj.Material.toUpperCase();
 					iObj.RequestedQuantity = tData.trec[j].Quan;
+
+					itemTObj.Language = "E";
+					itemTObj.LongTextID = tData.trec[j].ITID;
+					itemTObj.LongTextID = itemTObj.LongTextID.toUpperCase();
+					itemTObj.LongText = tData.trec[j].Itext;
+					itemsTObj.push(itemTObj);
+					iObj.to_Text = itemsTObj;
 
 					itemPrice.ConditionType = tData.trec[j].CType;
 					itemPrice.ConditionType = itemPrice.ConditionType.toUpperCase();
@@ -1217,7 +1321,14 @@ sap.ui.define([
 							template: {
 								content: "{SParty}"
 							}
-						}, {
+						}, 
+						{
+							name: this.getView().getModel("i18n").getResourceBundle().getText("ShipParty"),
+							template: {
+								content: "{SHParty}"
+							}
+						},
+						{
 							name: this.getView().getModel("i18n").getResourceBundle().getText("CReferenceE"),
 							template: {
 								content: "{Cref}"
@@ -1247,7 +1358,20 @@ sap.ui.define([
 							template: {
 								content: "{Mat}"
 							}
-						}, {
+						}, 
+						{
+							name: this.getView().getModel("i18n").getResourceBundle().getText("HTextID"),
+							template: {
+								content: "{HTID}"
+							}
+						},
+						{
+							name: this.getView().getModel("i18n").getResourceBundle().getText("HText"),
+							template: {
+								content: "{Htext}"
+							}
+						},
+						{
 							name: this.getView().getModel("i18n").getResourceBundle().getText("Quan"),
 							template: {
 								content: "{Quan}"
@@ -1262,7 +1386,21 @@ sap.ui.define([
 							template: {
 								content: "{Cvalue}"
 							}
-						}, {
+						},
+							{
+							name: this.getView().getModel("i18n").getResourceBundle().getText("ITextID"),
+							template: {
+								content: "{ITID}"
+							}
+						},
+						{
+							name: this.getView().getModel("i18n").getResourceBundle().getText("IText"),
+							template: {
+								content: "{Itext}"
+							}
+						},
+						
+						{
 							name: this.getView().getModel("i18n").getResourceBundle().getText("Bblock"),
 							template: {
 								content: "{Bblock}"
@@ -1517,33 +1655,33 @@ sap.ui.define([
 			var oFltr = [];
 			var name = "name";
 			var email = "email";
-//			console.log(jdata);
+			//			console.log(jdata);
 			if (email in jdata) {
 				email = jdata.email;
-//				console.log("email");
-//				console.log(email);
+				//				console.log("email");
+				//				console.log(email);
 			} else {
 				email = jdata.name;
-//				console.log("name");
-//				console.log(email);
-		
+				//				console.log("name");
+				//				console.log(email);
+
 			}
 			this._email = email;
 			var Oemail = new Filter("DefaultEmailAddress", FilterOperator.EQ, email);
 			oFltr.push(Oemail);
-//			console.log(this._email);
+			//			console.log(this._email);
 			var names = [];
 			names = email.split(".");
 			var flen = names[0].length;
 			var llen = names[1].length;
 			var fc = names[0].charAt(0);
 			var lc = names[1].charAt(0);
-			var fnamec = names[0].substr(1,flen);
-		    var lnamec = names[1].substr(1,llen);
+			var fnamec = names[0].substr(1, flen);
+			var lnamec = names[1].substr(1, llen);
 			fc = fc.toUpperCase();
 			lc = lc.toUpperCase();
-			var nemail = fc + fnamec + "." + lc + lnamec + "." + names[2] ;
-	
+			var nemail = fc + fnamec + "." + lc + lnamec + "." + names[2];
+
 			var emailF = new Filter("DefaultEmailAddress", FilterOperator.EQ, nemail);
 			oFltr.push(emailF);
 			var bModel = new sap.ui.model.odata.v2.ODataModel("/S4HC/sap/opu/odata/sap/YY1_BU_EMAIL_ADDRESS_CDS/");
@@ -1551,23 +1689,21 @@ sap.ui.define([
 				filters: oFltr,
 				async: false,
 				success: function (oRes) {
-				 if(oRes.results.length > 0 )	
-				 {
-				 that._bID = oRes.results[0].UserID;
-				 }else{
-				 	that._bID = that._email;
-				 }
-				 
-              //   alert("success");
+					if (oRes.results.length > 0) {
+						that._bID = oRes.results[0].UserID;
+					} else {
+						that._bID = that._email;
+					}
+
+					//   alert("success");
 				},
 				error: function () {
-              //   alert("failed");
+					//   alert("failed");
 				}
 			});
-		if ( email !== " ")
-		{
-			
-		}
+			if (email !== " ") {
+
+			}
 		}
 	});
 });

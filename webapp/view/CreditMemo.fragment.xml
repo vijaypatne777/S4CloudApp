@@ -1,4 +1,8 @@
 <core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+		<ScrollContainer height="100%"
+		width="100%"
+		vertical="true"
+		focusable="true" >
 	<Table id="memoTable" items="{ path: '/trec'}" growing="true" width="100%"  sticky="ColumnHeaders"  >
 		<headerToolbar>
 			<Toolbar>
@@ -8,55 +12,70 @@
 			</Toolbar>
 		</headerToolbar>
 		<columns>
-			<Column width="2.5rem">
+			<Column width="4rem">
 				<Text text="{i18n>NewOrderTitle}"/>
 			</Column>
 			<Column width="3.5rem">
 				<Text text="{i18n>DocType}"/>
 			</Column>
-			<Column width="2.5rem">
+			<Column width="4rem">
 				<Text text="{i18n>SalesOrg}"/>
 			</Column>
-			<Column width="3.4rem">
+			<Column width="4rem">
 				<Text text="{i18n>DistChannel}"/>
 			</Column>
-			<Column width="3rem">
+			<Column width="4rem">
 				<Text text="{i18n>Division}"/>
 			</Column>
-			<Column width="3.5rem">
+			<Column width="5rem">
 				<Text text="{i18n>SoldParty}"/>
 			</Column>
-			<Column width="4rem">
+			<Column width="5rem">
+				<Text text="{i18n>ShipParty}"/>
+			</Column>
+			<Column width="5rem">
 				<Text text="{i18n>CReference}"/>
 			</Column>
-			<Column width="3rem">
+			<Column width="5rem">
 				<Text text="{i18n>Oreason}"/>
 			</Column>
-			<Column width="2.5rem">
+			<Column width="3.5rem">
 				<Text text="{i18n>Pterm}"/>
 			</Column>
-			<Column width="3.2rem">
+			<Column width="5rem">
 				<Text text="{i18n>Currency}"/>
 			</Column>
-			<Column width="3rem">
+			<Column width="4rem">
 				<Text text="{i18n>PMethod}"/>
 			</Column>
-			<Column width="3.3rem">
+				<Column width="4rem">
+				<Text text="{i18n>HTextID}"/>
+			</Column>
+			<Column width="4rem">
+				<Text text="{i18n>HText}"/>
+			</Column>
+			<Column width="4.5rem">
 				<Text text="{i18n>Mat}"/>
 			</Column>
-			<Column width="2.9rem">
+			<Column width="4.5rem">
 				<Text text="{i18n>Quan}"/>
 			</Column>
-			<Column width="3.4rem">
+			<Column width="4.5rem">
 				<Text text="{i18n>CType}"/>
 			</Column>
-			<Column width="2.5rem">
+			<Column width="4rem">
 				<Text text="{i18n>CValue}"/>
 			</Column>
-			<Column width="3rem">
+			<Column width="4rem">
+				<Text text="{i18n>ITextID}"/>
+			</Column>
+			<Column width="5rem">
+				<Text text="{i18n>IText}"/>
+			</Column>
+			<Column width="5rem">
 				<Text text="{i18n>Bblock}"/>
 			</Column>
-			<Column width="3rem">
+			<Column width="5rem">
 				<Text text="{i18n>CMemo}"/>
 			</Column>
 		</columns>
@@ -69,6 +88,7 @@
 					<Text text="{Dchnl}"/>
 					<Text text="{Div}"/>
 					<Text text="{SParty}"/>
+					<Text text="{SHParty}"/>
 					<Text text="{Cref}">
 						<!--<customData>-->
 						<!--	<c:CustomData key="color" value="{SDColorCode}" writeToDom="true"/>-->
@@ -90,14 +110,23 @@
 						<!--</customData>-->
 					</Text>
 					<Text text="{Pmethod}"/>
+					<Text text="{HTID}">
+					<!--<customData>-->
+					<!--	<c:CustomData key="color" value="{BTColorCode}" writeToDom="true"/>-->
+					<!--</customData>-->
+					</Text>
+					<Text text="{Htext}"/>
 					<Text text="{Mat}"/>
 					<Text text="{Quan}"/>
 					<Text text="{CType}"/>
 					<Text text="{Cvalue}"/>
+					<Text text="{ITID}"/>
+					<Text text="{Itext}"/>
 					<Text text="{Bblock}"/>
 					<Text text="{Memo}"/>
 				</cells>
 			</ColumnListItem>
 		</items>
 	</Table>
+</ScrollContainer>	
 </core:FragmentDefinition>
