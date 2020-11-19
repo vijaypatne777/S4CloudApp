@@ -224,7 +224,7 @@ sap.ui.define([
 
 										pobj["SParty"] = obj[headerRow[i]];
 										break;
-                                    case 6:
+									case 6:
 
 										pobj["SHParty"] = obj[headerRow[i]];
 										break;
@@ -500,7 +500,6 @@ sap.ui.define([
 					var itemsObj = [];
 					pobj = {};
 					pobjs = [];
-					
 
 					//					} else {
 					obj.YY1_CreditDebitMemoReq_SDH = this._bID;
@@ -522,9 +521,9 @@ sap.ui.define([
 					obj.PurchaseOrderByCustomer = tData.trec[j].Cref;
 					obj.HeaderBillingBlockReason = tData.trec[j].Bblock;
 					obj.HeaderBillingBlockReason = obj.HeaderBillingBlockReason.toUpperCase();
-					
-						if (tData.trec[j].SHParty !== "") {
-						
+
+					if (tData.trec[j].SHParty !== "") {
+
 						pobj.PartnerFunction = 'SH';
 
 						pobj.Customer = tData.trec[j].SHParty;
@@ -582,16 +581,16 @@ sap.ui.define([
 						obj.HeaderBillingBlockReason = tData.trec[j].Bblock;
 						obj.HeaderBillingBlockReason = obj.HeaderBillingBlockReason.toUpperCase();
 						obj.PurchaseOrderByCustomer = tData.trec[j].Cref;
-						
-							if (tData.trec[j].SHParty !== "") {
-						
-						pobj.PartnerFunction = 'SH';
 
-						pobj.Customer = tData.trec[j].SHParty;
+						if (tData.trec[j].SHParty !== "") {
 
-						pobjs.push(pobj);
-						obj.to_Partner = pobjs;
-					}
+							pobj.PartnerFunction = 'SH';
+
+							pobj.Customer = tData.trec[j].SHParty;
+
+							pobjs.push(pobj);
+							obj.to_Partner = pobjs;
+						}
 						//						if (tData.trec[j].HTID !== " " && tData.trec[j].HTID !== "" ) {
 						tObj.LongTextID = tData.trec[j].HTID;
 						tObj.LongTextID = tObj.LongTextID.toUpperCase();
@@ -758,10 +757,10 @@ sap.ui.define([
 			for (var j = 0; j < tData.trec.length; j++) {
 
 				var iObj = {};
-			
+
 				var itemPrice = {};
 				var itemsPrice = [];
-			
+
 				var itemTObj = {};
 				var itemsTObj = [];
 
@@ -777,16 +776,16 @@ sap.ui.define([
 					//	var obj = {};
 
 					//					} else {
-					
-				   obj = {};
-				   iObj = {};
-				   itemsObj = [];
-				 
-				   tObj = {};
-				   hTobj = [];
-			       pobj= {};
-			       pobjs = [];
-					
+
+					obj = {};
+					iObj = {};
+					itemsObj = [];
+
+					tObj = {};
+					hTobj = [];
+					pobj = {};
+					pobjs = [];
+
 					obj.YY1_CreditDebitMemoReq_SDH = this._bID;
 					obj.CreditMemoRequestType = tData.trec[j].DType;
 					obj.CreditMemoRequestType = obj.CreditMemoRequestType.toUpperCase();
@@ -808,7 +807,7 @@ sap.ui.define([
 					obj.HeaderBillingBlockReason = obj.HeaderBillingBlockReason.toUpperCase();
 
 					if (tData.trec[j].SHParty !== "") {
-						
+
 						pobj.PartnerFunction = 'SH';
 
 						pobj.Customer = tData.trec[j].SHParty;
@@ -867,7 +866,7 @@ sap.ui.define([
 						obj.HeaderBillingBlockReason = obj.HeaderBillingBlockReason.toUpperCase();
 
 						if (tData.trec[j].SHParty !== "") {
-						
+
 							pobj.PartnerFunction = 'SH';
 							pobj.Customer = tData.trec[j].SHParty;
 							pobjs.push(pobj);
@@ -1136,26 +1135,29 @@ sap.ui.define([
 				obj["Dchnl"] = oRes.DistributionChannel;
 				obj["Div"] = oRes.OrganizationDivision;
 				obj["SParty"] = oRes.SoldToParty;
+				if ('to_Partner' in tObj) {
+					obj["SHParty"] = tObj.to_Partner[0].Customer;
+				}
 				obj["Cref"] = oRes.PurchaseOrderByCustomer;
 				obj["Oreason"] = oRes.SDDocumentReason;
 				obj["Pterm"] = oRes.CustomerPaymentTerms;
 				obj["Currency"] = oRes.TransactionCurrency;
 				obj["Pmethod"] = oRes.PaymentMethod;
 				obj["Bblock"] = tObj.HeaderBillingBlockReason;
-				if (this._cIndex === 1) {
-					obj["HTID"] = tObj.to_Text[0].LongTextID;
-					obj["Htext"] = tObj.to_Text[0].LongText;
-				}
+				//				if (this._cIndex === 1) {
+				obj["HTID"] = tObj.to_Text[0].LongTextID;
+				obj["Htext"] = tObj.to_Text[0].LongText;
+				//				}
 				for (var j = 0; j < tObj.to_Item.length; j++) {
 					tObj.to_Item[j].Material = tObj.to_Item[j].Material.toUpperCase();
 					obj["Mat"] = tObj.to_Item[j].Material;
 					obj["Quan"] = tObj.to_Item[j].RequestedQuantity;
 					obj["CType"] = tObj.to_Item[j].to_PricingElement[0].ConditionType;
 					obj["Cvalue"] = tObj.to_Item[j].to_PricingElement[0].ConditionRateValue;
-					if (this._cIndex === 1) {
-						obj["ITID"] = tObj.to_Item[j].to_Text[0].LongTextID;
-						obj["Itext"] = tObj.to_Item[j].to_Text[0].LongText;
-					}
+					//					if (this._cIndex === 1) {
+					obj["ITID"] = tObj.to_Item[j].to_Text[0].LongTextID;
+					obj["Itext"] = tObj.to_Item[j].to_Text[0].LongText;
+					//					}
 					this._aObj.push(obj);
 					if (j !== (tObj.to_Item.length - 1)) {
 						var obj = {};
@@ -1174,16 +1176,19 @@ sap.ui.define([
 						obj["Dchnl"] = oRes.DistributionChannel;
 						obj["Div"] = oRes.OrganizationDivision;
 						obj["SParty"] = oRes.SoldToParty;
+						if ('to_Partner' in tObj) {
+							obj["SHParty"] = tObj.to_Partner[0].Customer;
+						}
 						obj["Cref"] = oRes.PurchaseOrderByCustomer;
 						obj["Oreason"] = oRes.SDDocumentReason;
 						obj["Pterm"] = oRes.CustomerPaymentTerms;
 						obj["Currency"] = oRes.TransactionCurrency;
 						obj["Pmethod"] = oRes.PaymentMethod;
 						obj["Bblock"] = tObj.HeaderBillingBlockReason;
-						if (this._cIndex === 1) {
-							obj["HTID"] = tObj.to_Text[0].LongTextID;
-							obj["Htext"] = tObj.to_Text[0].LongText;
-						}
+						//						if (this._cIndex === 1) {
+						obj["HTID"] = tObj.to_Text[0].LongTextID;
+						obj["Htext"] = tObj.to_Text[0].LongText;
+						//						}
 					}
 				}
 			} else {
@@ -1202,26 +1207,29 @@ sap.ui.define([
 				obj["Dchnl"] = tObj.DistributionChannel;
 				obj["Div"] = tObj.OrganizationDivision;
 				obj["SParty"] = tObj.SoldToParty;
+					if ('to_Partner' in tObj) {
+					obj["SHParty"] = tObj.to_Partner[0].Customer;
+				}
 				obj["Cref"] = tObj.PurchaseOrderByCustomer;
 				obj["Oreason"] = tObj.SDDocumentReason;
 				obj["Pterm"] = tObj.CustomerPaymentTerms;
 				obj["Currency"] = tObj.TransactionCurrency;
 				obj["Pmethod"] = tObj.PaymentMethod;
 				obj["Bblock"] = tObj.HeaderBillingBlockReason;
-				if (this._cIndex === 1) {
-					obj["HTID"] = tObj.to_Text[0].LongTextID;
-					obj["Htext"] = tObj.to_Text[0].LongText;
-				}
+				//				if (this._cIndex === 1) {
+				obj["HTID"] = tObj.to_Text[0].LongTextID;
+				obj["Htext"] = tObj.to_Text[0].LongText;
+				//				}
 				for (var j = 0; j < tObj.to_Item.length; j++) {
 					tObj.to_Item[j].Material = tObj.to_Item[j].Material.toUpperCase();
 					obj["Mat"] = tObj.to_Item[j].Material;
 					obj["Quan"] = tObj.to_Item[j].RequestedQuantity;
 					obj["CType"] = tObj.to_Item[j].to_PricingElement[0].ConditionType;
 					obj["Cvalue"] = tObj.to_Item[j].to_PricingElement[0].ConditionRateValue;
-					if (this._cIndex === 1) {
-						obj["ITID"] = tObj.to_Item[j].to_Text[0].LongTextID;
-						obj["Itext"] = tObj.to_Item[j].to_Text[0].LongText;
-					}
+					//					if (this._cIndex === 1) {
+					obj["ITID"] = tObj.to_Item[j].to_Text[0].LongTextID;
+					obj["Itext"] = tObj.to_Item[j].to_Text[0].LongText;
+					//					}
 					this._aObj.push(obj);
 					if (j !== (tObj.to_Item.length - 1)) {
 						var obj = {};
@@ -1239,16 +1247,19 @@ sap.ui.define([
 						obj["Dchnl"] = tObj.DistributionChannel;
 						obj["Div"] = tObj.OrganizationDivision;
 						obj["SParty"] = tObj.SoldToParty;
+						if ('to_Partner' in tObj) {
+							obj["SHParty"] = tObj.to_Partner[0].Customer;
+						}
 						obj["Cref"] = tObj.PurchaseOrderByCustomer;
 						obj["Oreason"] = tObj.SDDocumentReason;
 						obj["Pterm"] = tObj.CustomerPaymentTerms;
 						obj["Currency"] = tObj.TransactionCurrency;
 						obj["Pmethod"] = tObj.PaymentMethod;
 						obj["Bblock"] = tObj.HeaderBillingBlockReason;
-						if (this._cIndex === 1) {
-							obj["HTID"] = tObj.to_Text[0].LongTextID;
-							obj["Htext"] = tObj.to_Text[0].LongText;
-						}
+						//						if (this._cIndex === 1) {
+						obj["HTID"] = tObj.to_Text[0].LongTextID;
+						obj["Htext"] = tObj.to_Text[0].LongText;
+						//						}
 					}
 				}
 			}
@@ -1292,125 +1303,121 @@ sap.ui.define([
 							path: "/trec"
 						},
 						columns: [{
-							name: this.getView().getModel("i18n").getResourceBundle().getText("NewOrderTitle"), //"Document Type",
-							template: {
-								content: "{NOrder}"
-							}
-						}, {
-							name: this.getView().getModel("i18n").getResourceBundle().getText("DocTypeE"), //"Document Type",
-							template: {
-								content: "{DType}"
-							}
-						}, {
-							name: this.getView().getModel("i18n").getResourceBundle().getText("SalesOrgE"),
-							template: {
-								content: "{Sorg}"
-							}
-						}, {
-							name: this.getView().getModel("i18n").getResourceBundle().getText("DistChannelE"),
-							template: {
-								content: "{Dchnl}"
-							}
-						}, {
-							name: this.getView().getModel("i18n").getResourceBundle().getText("Division"),
-							template: {
-								content: "{Div}"
-							}
-						}, {
-							name: this.getView().getModel("i18n").getResourceBundle().getText("SoldParty"),
-							template: {
-								content: "{SParty}"
-							}
-						}, 
-						{
-							name: this.getView().getModel("i18n").getResourceBundle().getText("ShipParty"),
-							template: {
-								content: "{SHParty}"
-							}
-						},
-						{
-							name: this.getView().getModel("i18n").getResourceBundle().getText("CReferenceE"),
-							template: {
-								content: "{Cref}"
-							}
-						}, {
-							name: this.getView().getModel("i18n").getResourceBundle().getText("Oreason"),
-							template: {
-								content: "{Oreason}"
-							}
-						}, {
-							name: this.getView().getModel("i18n").getResourceBundle().getText("PTermE"),
-							template: {
-								content: "{Pterm}"
-							}
-						}, {
-							name: this.getView().getModel("i18n").getResourceBundle().getText("Currency"),
-							template: {
-								content: "{Currency}"
-							}
-						}, {
-							name: this.getView().getModel("i18n").getResourceBundle().getText("PMethodE"),
-							template: {
-								content: "{Pmethod}"
-							}
-						}, {
-							name: this.getView().getModel("i18n").getResourceBundle().getText("Mat"),
-							template: {
-								content: "{Mat}"
-							}
-						}, 
-						{
-							name: this.getView().getModel("i18n").getResourceBundle().getText("HTextID"),
-							template: {
-								content: "{HTID}"
-							}
-						},
-						{
-							name: this.getView().getModel("i18n").getResourceBundle().getText("HText"),
-							template: {
-								content: "{Htext}"
-							}
-						},
-						{
-							name: this.getView().getModel("i18n").getResourceBundle().getText("Quan"),
-							template: {
-								content: "{Quan}"
-							}
-						}, {
-							name: this.getView().getModel("i18n").getResourceBundle().getText("CType"),
-							template: {
-								content: "{CType}"
-							}
-						}, {
-							name: this.getView().getModel("i18n").getResourceBundle().getText("CValueE"),
-							template: {
-								content: "{Cvalue}"
-							}
-						},
+								name: this.getView().getModel("i18n").getResourceBundle().getText("NewOrderTitle"), //"Document Type",
+								template: {
+									content: "{NOrder}"
+								}
+							}, {
+								name: this.getView().getModel("i18n").getResourceBundle().getText("DocTypeE"), //"Document Type",
+								template: {
+									content: "{DType}"
+								}
+							}, {
+								name: this.getView().getModel("i18n").getResourceBundle().getText("SalesOrgE"),
+								template: {
+									content: "{Sorg}"
+								}
+							}, {
+								name: this.getView().getModel("i18n").getResourceBundle().getText("DistChannelE"),
+								template: {
+									content: "{Dchnl}"
+								}
+							}, {
+								name: this.getView().getModel("i18n").getResourceBundle().getText("Division"),
+								template: {
+									content: "{Div}"
+								}
+							}, {
+								name: this.getView().getModel("i18n").getResourceBundle().getText("SoldParty"),
+								template: {
+									content: "{SParty}"
+								}
+							}, {
+								name: this.getView().getModel("i18n").getResourceBundle().getText("ShipParty"),
+								template: {
+									content: "{SHParty}"
+								}
+							}, {
+								name: this.getView().getModel("i18n").getResourceBundle().getText("CReferenceE"),
+								template: {
+									content: "{Cref}"
+								}
+							}, {
+								name: this.getView().getModel("i18n").getResourceBundle().getText("Oreason"),
+								template: {
+									content: "{Oreason}"
+								}
+							}, {
+								name: this.getView().getModel("i18n").getResourceBundle().getText("PTermE"),
+								template: {
+									content: "{Pterm}"
+								}
+							}, {
+								name: this.getView().getModel("i18n").getResourceBundle().getText("Currency"),
+								template: {
+									content: "{Currency}"
+								}
+							}, {
+								name: this.getView().getModel("i18n").getResourceBundle().getText("PMethodE"),
+								template: {
+									content: "{Pmethod}"
+								}
+							}, {
+								name: this.getView().getModel("i18n").getResourceBundle().getText("HTextID"),
+								template: {
+									content: "{HTID}"
+								}
+							}, {
+								name: this.getView().getModel("i18n").getResourceBundle().getText("HText"),
+								template: {
+									content: "{Htext}"
+								}
+							},
+							 {
+								name: this.getView().getModel("i18n").getResourceBundle().getText("Mat"),
+								template: {
+									content: "{Mat}"
+								}
+							},
 							{
-							name: this.getView().getModel("i18n").getResourceBundle().getText("ITextID"),
-							template: {
-								content: "{ITID}"
+								name: this.getView().getModel("i18n").getResourceBundle().getText("Quan"),
+								template: {
+									content: "{Quan}"
+								}
+							}, {
+								name: this.getView().getModel("i18n").getResourceBundle().getText("CType"),
+								template: {
+									content: "{CType}"
+								}
+							}, {
+								name: this.getView().getModel("i18n").getResourceBundle().getText("CValueE"),
+								template: {
+									content: "{Cvalue}"
+								}
+							}, {
+								name: this.getView().getModel("i18n").getResourceBundle().getText("ITextID"),
+								template: {
+									content: "{ITID}"
+								}
+							}, {
+								name: this.getView().getModel("i18n").getResourceBundle().getText("IText"),
+								template: {
+									content: "{Itext}"
+								}
+							},
+
+							{
+								name: this.getView().getModel("i18n").getResourceBundle().getText("Bblock"),
+								template: {
+									content: "{Bblock}"
+								}
+							}, {
+								name: this.getView().getModel("i18n").getResourceBundle().getText("CreditMemo"),
+								template: {
+									content: "{Memo}"
+								}
 							}
-						},
-						{
-							name: this.getView().getModel("i18n").getResourceBundle().getText("IText"),
-							template: {
-								content: "{Itext}"
-							}
-						},
-						
-						{
-							name: this.getView().getModel("i18n").getResourceBundle().getText("Bblock"),
-							template: {
-								content: "{Bblock}"
-							}
-						}, {
-							name: this.getView().getModel("i18n").getResourceBundle().getText("CreditMemo"),
-							template: {
-								content: "{Memo}"
-							}
-						}]
+						]
 
 					});
 
@@ -1455,6 +1462,13 @@ sap.ui.define([
 								name: this.getView().getModel("i18n").getResourceBundle().getText("SoldParty"),
 								template: {
 									content: "{SParty}"
+								}
+							},
+
+							{
+								name: this.getView().getModel("i18n").getResourceBundle().getText("ShipParty"),
+								template: {
+									content: "{SHParty}"
 								}
 							}, {
 								name: this.getView().getModel("i18n").getResourceBundle().getText("CReferenceE"),
